@@ -1,0 +1,37 @@
+{
+  "name": "consumer",
+  "version": "1.0.0",
+  "description": "message-broker consumer",
+  "main": "index.js",
+  "author": "Idris Akintobi",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean:start": "rm -rf dist && rm -rf node_modules && yarn && yarn build && yarn start"
+  },
+  "dependencies": {
+    "@cloudamqp/amqp-client": "^3.1.1",
+    "dotenv": "^16.3.1",
+    "koa": "^2.14.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.8",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/**/node_modules",
+      "src/**/*.test.ts"
+    ],
+    "watch": [
+      "src"
+    ],
+    "ext": "ts,json",
+    "exec": "ts-node ./src/index.ts"
+  }
+}
